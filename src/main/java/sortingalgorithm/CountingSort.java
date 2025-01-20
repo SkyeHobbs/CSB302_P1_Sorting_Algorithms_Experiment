@@ -1,4 +1,4 @@
-package SortingAlgorithm;
+package sortingalgorithm;
 
 public class CountingSort {
 }

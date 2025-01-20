@@ -1,4 +1,4 @@
-package ArrayGeneration;
+package arraygeneration;
 
 public class SeventyFivePercentOrderedArray {
 }
