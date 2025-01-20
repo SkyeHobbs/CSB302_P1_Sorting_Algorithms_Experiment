@@ -1,8 +1,6 @@
 package sortingalgorithm;
 
-<<<<<<< HEAD
-public class InsertionSort {
-=======
+
 /**
  * Insertion sort class
  *
@@ -45,5 +43,4 @@ public class InsertionSort<T extends Comparable<T>> {
 
     return result; // Return the sorted array
   }
->>>>>>> main
 }
