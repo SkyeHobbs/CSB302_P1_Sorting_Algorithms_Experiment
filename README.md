@@ -27,7 +27,6 @@ In addition to the coding, a Word or Markdown document final report will be crea
 
 ## UML Diagram
 ![p1UML.png](img%2Fp1UML.png)
-...
 
 ## Group Members
 

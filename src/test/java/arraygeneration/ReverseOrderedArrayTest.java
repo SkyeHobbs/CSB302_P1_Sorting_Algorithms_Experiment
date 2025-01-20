@@ -1,4 +1,4 @@
-package ArrayGeneration;
+package arraygeneration;
 
 import org.junit.jupiter.api.BeforeEach;
 
