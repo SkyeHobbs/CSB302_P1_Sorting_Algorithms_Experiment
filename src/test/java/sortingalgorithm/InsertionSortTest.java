@@ -1,17 +1,6 @@
 package sortingalgorithm;
 
-<<<<<<< HEAD
-import org.junit.jupiter.api.BeforeEach;
 
-import static org.junit.jupiter.api.Assertions.*;
-
-class InsertionSortTest {
-
-    @BeforeEach
-    void setUp() {
-    }
-}
-=======
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 
@@ -56,4 +45,3 @@ class InsertionSortTest {
     assertEquals(5, result[4]);
   }
 }
->>>>>>> main
