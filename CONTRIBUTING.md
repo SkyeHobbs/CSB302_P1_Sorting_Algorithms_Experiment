@@ -11,19 +11,38 @@
 
 ## Contributors
 - **Alice Li**
-    - UML Deisgn Manager
-    - This is where the PM will be adding the tasks
+    - UML Design Manager
+    - Created UML design
+    - README.md
+    - QuickSort.java
+    - HeapSort.java
+    - RandomOrderedArray.java
+    - GenerateAllArrays.java
+    - ArrayInfo.java
 
 - **Henry Staiff**
     - Development Manager
-    - This is where the PM will be adding the tasks
+    - MergeSort.java
+    - ShellSort.java
+    - CountingSort.java
+    - OrderedArray.java
+    - ReverseOrderedArray.java
+    - Main.java
 
 - **Skye Hobbs**
     - Version Control Manager
-    - This is where the PM will be adding the tasks
+    - InsertionSort.java
+    - RadixSort.java
+    - FiftyPercentOrderedArray.java
+    - MeasureSortTime.java
 
 - **Tinisha Davis**
-    - Projecy Manager
-    - This is where the PM will be adding the tasks
+    - Project Manager
+    - CONTRIBUTING.md
+    - SelectionSort.java
+    - BucketSort.java
+    - BubbleSort.java
+    - SeventyFivePercentOrderedArray.java
+  
 
 Thank you for contributing! 
