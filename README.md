@@ -26,7 +26,7 @@ Radix Sort
 In addition to the coding, a Word or Markdown document final report will be created that will detail the design and experimental results.
 
 ## UML Diagram
-![p1UML.png](img%2Fp1UML.png)
+![P1_UML.png](img%2FP1_UML.png)
 
 ## Group Members
 
