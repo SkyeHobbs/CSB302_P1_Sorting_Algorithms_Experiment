@@ -27,6 +27,9 @@ public class MergeSort<T extends Comparable<T>> {
   /**
    * Private merge sort method. Divides an array recursively,
    * then merges the sub arrays together in sorted order.
+   * Time complexity of O(nlog(n))
+   * Merge sort is a stable sorting algorithm.
+   * Merge sort is done in place.
    *
    * @param array The array to sort.
    * @param left Index of the left bound of the array.
