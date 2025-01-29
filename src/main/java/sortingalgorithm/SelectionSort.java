@@ -15,19 +15,20 @@ public class SelectionSort {
    * @param array the {@link ArrayList} to be sorted
    * @throws NullPointerException if the specified list is null or contains null elements
    */
-  public static <T extends Comparable<T>> void selectionSort(ArrayList<T> array) {
-    for (int i = 0; i < array.size(); i++) {
+  public static <T extends Comparable<T>> T[] selectionSort(T[] array) {
+    for (int i = 0; i < array.length; i++) {
       int minIndex = i;
-      for (int j = i + 1; j < array.size(); j++) {
-        if (array.get(j).compareTo(array.get(minIndex)) < 0) {
+      for (int j = i + 1; j < array.length; j++) {
+        if (array[j].compareTo(array[minIndex]) < 0) {
           minIndex = j;
         }
       }
       if (minIndex != i) {
-        T temp = array.get(i);
-        array.set(i, array.get(minIndex));
-        array.set(minIndex, temp);
+        T temp = array[i];
+        array[i] = array[minIndex];
+        array[minIndex] = temp;
       }
     }
+    return array;
   }
 }
