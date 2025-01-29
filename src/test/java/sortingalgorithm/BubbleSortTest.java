@@ -1,34 +1,44 @@
 package sortingalgorithm;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 class BubbleSortTest {
-    private ArrayList<Integer> array1;
-    private ArrayList<String> array2;
 
-    @BeforeEach
-    void setUp() {
-        array1 = new ArrayList<>(Arrays.asList(64, 34, 25, 12, 22, 11, 90));
-        array2 = new ArrayList<>(Arrays.asList("pear", "apple", "orange", "banana"));
+  @Test
+  public void testBubbleSort_withIntegerArray() {
+    Integer[] array = {5, 3, 8, 4, 2};
+    Integer[] sortedArray = {2, 3, 4, 5, 8};
+    assertArrayEquals(sortedArray, BubbleSort.bubbleSort(array));
+  }
 
-    }
+  @Test
+  public void testBubbleSort_withStringArray() {
+    String[] array = {"banana", "apple", "cherry", "date"};
+    String[] sortedArray = {"apple", "banana", "cherry", "date"};
+    assertArrayEquals(sortedArray, BubbleSort.bubbleSort(array));
+  }
 
-    @Test
-    void testBubbleSort() {
+  @Test
+  public void testBubbleSort_withEmptyArray() {
+    Integer[] array = {};
+    Integer[] sortedArray = {};
+    assertArrayEquals(sortedArray, BubbleSort.bubbleSort(array));
+  }
 
-        ArrayList<Integer> expected1 = new ArrayList<>(Arrays.asList(11, 12, 22, 25, 34, 64, 90));
-        ArrayList<String> expected2 = new ArrayList<>(Arrays.asList("apple", "banana", "orange", "pear"));
+  @Test
+  public void testBubbleSort_withSingleElementArray() {
+    Integer[] array = {1};
+    Integer[] sortedArray = {1};
+    assertArrayEquals(sortedArray, BubbleSort.bubbleSort(array));
+  }
 
-        BubbleSort.bubbleSort(array1);
-        BubbleSort.bubbleSort(array2);
-
-        assertEquals(expected1, array1);
-        assertEquals(expected2, array2);
-    }
+  @Test
+  public void testBubbleSort_withAlreadySortedArray() {
+    Integer[] array = {1, 2, 3, 4, 5};
+    Integer[] sortedArray = {1, 2, 3, 4, 5};
+    assertArrayEquals(sortedArray, BubbleSort.bubbleSort(array));
+  }
 }
+
