@@ -1,20 +1,18 @@
 package sortingalgorithm;
 
-import java.util.ArrayList;
-
 /**
- * A utility class that provides a generic method to perform bubble sort on an {@link ArrayList}.
+ * A utility class that provides a generic method to perform bubble sort on an array.
+ * Bubble sort has a time complexity of O(n^2)
  */
-public class BubbleSort {
+public class BubbleSort<T extends Comparable<T>> {
   /**
-   * Sorts the specified {@link ArrayList} using the bubble sort algorithm. The elements in the list
-   * must implement the {@link Comparable} interface.
+   * Sorts the specified array using the bubble sort algorithm. The elements in the list
+   * must implement the Comparable interface.
    *
-   * @param <T>   the type of elements in the list, which must implement {@link Comparable}
-   * @param array the {@link ArrayList} to be sorted
+   * @param array the  to be sorted
    * @throws NullPointerException if the specified list is null or contains null elements
    */
-  public static <T extends Comparable<T>> T[] bubbleSort(T[] array) {
+  public T[] bubbleSort(T[] array) {
     int n = array.length;
     boolean swapped;
     for (int i = 0; i < n - 1; i++) {
