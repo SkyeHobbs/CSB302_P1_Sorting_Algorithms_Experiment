@@ -6,17 +6,17 @@ import java.util.List;
 
 /**
  * A utility class that provides a generic Bucket Sort algorithm.
+ * Bucket sort has a time complexity of O(n + K)
  */
-public class BucketSort {
+public class BucketSort<T extends Comparable<T>> {
 
   /**
    * Sorts the given array using the Bucket Sort algorithm.
    *
-   * @param <T>   the type of elements in the array, must extend Comparable
    * @param array the array to be sorted
    * @return the sorted array
    */
-  public static <T extends Comparable<T>> T[] bucketSort(T[] array) {
+  public T[] bucketSort(T[] array) {
     if (array == null || array.length == 0) {
       return array;
     }
@@ -44,7 +44,7 @@ public class BucketSort {
 
     // Distribute the elements into the buckets
     for (T value : array) {
-      int bucketIndex = (int) ((value.compareTo(minValue)) * (numberOfBuckets - 1) / (maxValue.compareTo(minValue)));
+      int bucketIndex = (value.compareTo(minValue)) * (numberOfBuckets - 1) / (maxValue.compareTo(minValue));
       buckets.get(bucketIndex).add(value);
     }
 
