@@ -18,7 +18,7 @@ public class CountingSort {
    * @param array the integer array to be sorted.
    * @return the sorted array.
    */
-  public int[] countingSort(int[] array) {
+  public Integer[] countingSort(Integer[] array) {
     //Empty and null array cases.
     if (array == null) {
       return null;
@@ -60,7 +60,7 @@ public class CountingSort {
     // Then decrement the index in the frequency array that was accessed.
     //O(n)
 
-    int[] sortedArray = new int[array.length];
+    Integer[] sortedArray = new Integer[array.length];
     for (int i = array.length - 1; i >= 0; i--) {
       sortedArray[freqArray[array[i]] - 1] = array[i];
       freqArray[array[i]]--;
