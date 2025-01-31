@@ -1,11 +1,7 @@
 import arraygeneration.GenerateAllArrays;
-import org.jfree.chart.JFreeChart;
-import org.jfree.chart.plot.Plot;
+import java.util.List;
 import sortingalgorithm.*;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 /**
  * Main class. Runs all sorting algorithms on test arrays
@@ -20,79 +16,90 @@ public class Main {
   public static void main(String[] args) {
     //Initialize arrays.
     GenerateAllArrays<Integer> generateAllArrays = new GenerateAllArrays<>();
-    List<GenerateAllArrays.ArrayInfo<Integer>> listOfArrays;
+    List<GenerateAllArrays.ArrayInfo<Integer>> testArrays;
 
     //Run sorting algorithms.
-    /*
+    System.out.println("Running bubble sort test.");
     BubbleSort<Integer> bubbleSort = new BubbleSort<>();
-    listOfArrays = generateAllArrays.generateAllArrays();
-    for (int i = 0; i < listOfArrays.size(); i++) {
-      bubbleSort.bubbleSort(listOfArrays.get(i).getArray());
+    testArrays = generateAllArrays.generateAllArrays();
+    for (int i = 0; i < testArrays.size(); i++) {
+      bubbleSort.bubbleSort(testArrays.get(i).getArray());
     }
 
+    System.out.println("Running bucket sort test.");
     BucketSort<Integer> bucketSort = new BucketSort<>();
-    listOfArrays = generateAllArrays.generateAllArrays();
-    for (int i = 0; i < listOfArrays.size(); i++) {
-      bucketSort.bucketSort(listOfArrays.get(i).getArray());
+    testArrays = generateAllArrays.generateAllArrays();
+    for (int i = 0; i < testArrays.size(); i++) {
+      bucketSort.bucketSort(testArrays.get(i).getArray());
     }
-    */
+
+    System.out.println("Running counting sort test.");
     CountingSort countingSort = new CountingSort();
-    listOfArrays = generateAllArrays.generateAllArrays();
-    for (int i = 0; i < listOfArrays.size(); i++) {
-      countingSort.countingSort(listOfArrays.get(i).getArray());
+    testArrays = generateAllArrays.generateAllArrays();
+    for (int i = 0; i < testArrays.size(); i++) {
+      countingSort.countingSort(testArrays.get(i).getArray());
     }
-    /*
+
+    System.out.println("Running heap sort test.");
     HeapSort<Integer> heapSort = new HeapSort<>();
-    listOfArrays = generateAllArrays.generateAllArrays();
-    for (int i = 0; i < listOfArrays.size(); i++) {
-      heapSort.heapSort(listOfArrays.get(i).getArray());
+    testArrays = generateAllArrays.generateAllArrays();
+    for (int i = 0; i < testArrays.size(); i++) {
+      heapSort.heapSort(testArrays.get(i).getArray());
     }
 
+    System.out.println("Running insertion sort test.");
     InsertionSort<Integer> insertionSort = new InsertionSort<>();
-    listOfArrays = generateAllArrays.generateAllArrays();
-    for (int i = 0; i < listOfArrays.size(); i++) {
-      insertionSort.insertionSort(listOfArrays.get(i).getArray());
+    testArrays = generateAllArrays.generateAllArrays();
+    for (int i = 0; i < testArrays.size(); i++) {
+      insertionSort.insertionSort(testArrays.get(i).getArray());
     }
+
+    System.out.println("Running merge sort test.");
     MergeSort<Integer> mergeSort = new MergeSort<>();
-    listOfArrays = generateAllArrays.generateAllArrays();
-    for (int i = 0; i < listOfArrays.size(); i++) {
-      mergeSort.mergeSort(listOfArrays.get(i).getArray());
+    testArrays = generateAllArrays.generateAllArrays();
+    for (int i = 0; i < testArrays.size(); i++) {
+      mergeSort.mergeSort(testArrays.get(i).getArray());
     }
 
+    System.out.println("Running quick sort first pivot test.");
     QuickSort<Integer> quickSort = new QuickSort<>();
-    listOfArrays = generateAllArrays.generateAllArrays();
-    for (int i = 0; i < listOfArrays.size(); i++) {
-      quickSort.quickSortFirstPivot(listOfArrays.get(i).getArray());
+    testArrays = generateAllArrays.generateAllArrays();
+    for (int i = 0; i < testArrays.size(); i++) {
+      quickSort.quickSortFirstPivot(testArrays.get(i).getArray());
     }
-    listOfArrays = generateAllArrays.generateAllArrays();
-    for (int i = 0; i < listOfArrays.size(); i++) {
-      quickSort.quickSortMedianOfThree(listOfArrays.get(i).getArray());
+    System.out.println("Running quick sort median of three test.");
+    testArrays = generateAllArrays.generateAllArrays();
+    for (int i = 0; i < testArrays.size(); i++) {
+      quickSort.quickSortMedianOfThree(testArrays.get(i).getArray());
     }
-    listOfArrays = generateAllArrays.generateAllArrays();
-    for (int i = 0; i < listOfArrays.size(); i++) {
-      quickSort.quickSortRandomPivot(listOfArrays.get(i).getArray());
+    System.out.println("Running quick sort random pivot test.");
+    testArrays = generateAllArrays.generateAllArrays();
+    for (int i = 0; i < testArrays.size(); i++) {
+      quickSort.quickSortRandomPivot(testArrays.get(i).getArray());
     }
-    */
+
+    System.out.println("Running radix sort test.");
     RadixSort radixSort = new RadixSort();
-    listOfArrays = generateAllArrays.generateAllArrays();
-    for (int i = 0; i < listOfArrays.size(); i++) {
-      radixSort.radixSort(listOfArrays.get(i).getArray());
+    testArrays = generateAllArrays.generateAllArrays();
+    for (int i = 0; i < testArrays.size(); i++) {
+      radixSort.radixSort(testArrays.get(i).getArray());
     }
-    /*
+
+    System.out.println("Running selection sort test.");
     SelectionSort<Integer> selectionSort = new SelectionSort<>();
-    listOfArrays = generateAllArrays.generateAllArrays();
-    for (int i = 0; i < listOfArrays.size(); i++) {
-      selectionSort.selectionSort(listOfArrays.get(i).getArray());
+    testArrays = generateAllArrays.generateAllArrays();
+    for (int i = 0; i < testArrays.size(); i++) {
+      selectionSort.selectionSort(testArrays.get(i).getArray());
     }
 
+    System.out.println("Running shell sort test.");
     ShellSort<Integer> shellSort = new ShellSort<>();
-    listOfArrays = generateAllArrays.generateAllArrays();
-    for (int i = 0; i < listOfArrays.size(); i++) {
-      shellSort.shellSort(listOfArrays.get(i).getArray());
+    testArrays = generateAllArrays.generateAllArrays();
+    for (int i = 0; i < testArrays.size(); i++) {
+      shellSort.shellSort(testArrays.get(i).getArray());
     }
-    */
-    //JFreeChart jFreeChart = new JFreeChart(Plot)
 
+    System.out.println("Sorting algorithm tests complete.");
 
   }
 }
