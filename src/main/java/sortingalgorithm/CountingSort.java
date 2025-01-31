@@ -39,7 +39,7 @@ public class CountingSort {
     //The index represents the number in the original array.
     //The value represents the occurrences of the number in the original array.
     //O(n)
-    Integer[] freqArray = new Integer[maxValue + 1];
+    int[] freqArray = new int[maxValue + 1];
     for (int i : array) {
       freqArray[i]++;
     }

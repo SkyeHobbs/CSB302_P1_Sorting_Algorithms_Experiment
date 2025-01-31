@@ -23,6 +23,7 @@ public class Main {
     List<GenerateAllArrays.ArrayInfo<Integer>> listOfArrays;
 
     //Run sorting algorithms.
+    /*
     BubbleSort<Integer> bubbleSort = new BubbleSort<>();
     listOfArrays = generateAllArrays.generateAllArrays();
     for (int i = 0; i < listOfArrays.size(); i++) {
@@ -34,13 +35,13 @@ public class Main {
     for (int i = 0; i < listOfArrays.size(); i++) {
       bucketSort.bucketSort(listOfArrays.get(i).getArray());
     }
-
+    */
     CountingSort countingSort = new CountingSort();
     listOfArrays = generateAllArrays.generateAllArrays();
     for (int i = 0; i < listOfArrays.size(); i++) {
       countingSort.countingSort(listOfArrays.get(i).getArray());
     }
-
+    /*
     HeapSort<Integer> heapSort = new HeapSort<>();
     listOfArrays = generateAllArrays.generateAllArrays();
     for (int i = 0; i < listOfArrays.size(); i++) {
@@ -71,13 +72,13 @@ public class Main {
     for (int i = 0; i < listOfArrays.size(); i++) {
       quickSort.quickSortRandomPivot(listOfArrays.get(i).getArray());
     }
-
+    */
     RadixSort radixSort = new RadixSort();
     listOfArrays = generateAllArrays.generateAllArrays();
     for (int i = 0; i < listOfArrays.size(); i++) {
       radixSort.radixSort(listOfArrays.get(i).getArray());
     }
-
+    /*
     SelectionSort<Integer> selectionSort = new SelectionSort<>();
     listOfArrays = generateAllArrays.generateAllArrays();
     for (int i = 0; i < listOfArrays.size(); i++) {
@@ -89,7 +90,7 @@ public class Main {
     for (int i = 0; i < listOfArrays.size(); i++) {
       shellSort.shellSort(listOfArrays.get(i).getArray());
     }
-
+    */
     //JFreeChart jFreeChart = new JFreeChart(Plot)
 
 

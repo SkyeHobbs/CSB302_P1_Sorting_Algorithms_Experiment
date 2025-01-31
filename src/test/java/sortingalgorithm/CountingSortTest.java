@@ -9,14 +9,14 @@ class CountingSortTest {
     @Test
     void countingSortNull() {
         CountingSort countingSort = new CountingSort();
-        int[] testArray = null;
+        Integer[] testArray = null;
         assertNull(countingSort.countingSort(testArray));
     }
 
     @Test
     void countingSortEmptyArray() {
         CountingSort countingSort = new CountingSort();
-        int[] testArray = new int[]{};
+        Integer[] testArray = new Integer[]{};
         testArray = countingSort.countingSort(testArray);
         assertEquals(0, testArray.length);
     }
@@ -24,8 +24,8 @@ class CountingSortTest {
     @Test
     void countingSortTest() {
         CountingSort countingSort = new CountingSort();
-        int[] testArray = new int[]{0, 1, 3, 2, 19, 109, 23, 4};
-        int[] sortedArray = new int[]{0, 1, 2, 3, 4, 19, 23, 109};
+        Integer[] testArray = new Integer[]{0, 1, 3, 2, 19, 109, 23, 4};
+        Integer[] sortedArray = new Integer[]{0, 1, 2, 3, 4, 19, 23, 109};
         testArray = countingSort.countingSort(testArray);
         assertArrayEquals(sortedArray, testArray);
     }
@@ -33,8 +33,8 @@ class CountingSortTest {
     @Test
     void countingSortDuplicatesTest() {
         CountingSort countingSort = new CountingSort();
-        int[] testArray = new int[]{0, 1, 15, 3, 15, 2, 15, 19, 109, 23, 4};
-        int[] sortedArray = new int[]{0, 1, 2, 3, 4, 15, 15, 15, 19, 23, 109};
+        Integer[] testArray = new Integer[]{0, 1, 15, 3, 15, 2, 15, 19, 109, 23, 4};
+        Integer[] sortedArray = new Integer[]{0, 1, 2, 3, 4, 15, 15, 15, 19, 23, 109};
         testArray = countingSort.countingSort(testArray);
         assertArrayEquals(sortedArray, testArray);
     }
@@ -42,7 +42,7 @@ class CountingSortTest {
     @Test
     void countingSortNegativeTest() {
         CountingSort countingSort = new CountingSort();
-        int[] testArray = new int[]{0, -1, 1, 3, 2, 19, 109, 23, 4};
+        Integer[] testArray = new Integer[]{0, -1, 1, 3, 2, 19, 109, 23, 4};
         assertThrows(ArrayIndexOutOfBoundsException.class, () -> countingSort.countingSort(testArray));
     }
 }
