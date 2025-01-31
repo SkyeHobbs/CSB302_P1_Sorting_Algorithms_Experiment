@@ -1,6 +1,7 @@
 package sortingalgorithm;
 
 import java.util.Random;
+import java.util.Stack;
 
 /**
  * QuickSort class implementing different pivot selection strategies.
@@ -39,10 +40,24 @@ public class QuickSort<T extends Comparable<T>> {
    * The main QuickSort logic that works with the specified pivot type.
    */
   private void quickSort(T[] array, int low, int high, PivotType pivotType) {
-    if (low < high) {
-      int pivotIndex = partition(array, low, high, pivotType);
-      quickSort(array, low, pivotIndex - 1, pivotType);
-      quickSort(array, pivotIndex + 1, high, pivotType);
+    Stack<int[]> stack = new Stack<>();
+    stack.push(new int[]{low, high}); // Push the initial range
+
+    while (!stack.isEmpty()) {
+      int[] range = stack.pop();
+      int start = range[0], end = range[1];
+
+      if (start < end) {
+        int pivotIndex = partition(array, start, end, pivotType);
+
+        // Push right subarray first so that left subarray is processed first
+        if (pivotIndex + 1 < end) {
+          stack.push(new int[]{pivotIndex + 1, end});
+        }
+        if (start < pivotIndex - 1) {
+          stack.push(new int[]{start, pivotIndex - 1});
+        }
+      }
     }
   }
 
