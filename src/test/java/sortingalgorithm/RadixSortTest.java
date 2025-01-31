@@ -10,12 +10,12 @@ class RadixSortTest {
     public void radixSort(){
         RadixSort radixSort = new RadixSort();
 
-        int[] arr1 = new int[0];
+        Integer[] arr1 = new Integer[0];
         radixSort.radixSort(arr1);
 
         assertEquals(arr1.length, 0);
 
-        int[] arr2 = new int[]{150, 40, 5, 106, 89};
+        Integer[] arr2 = new Integer[]{150, 40, 5, 106, 89};
         radixSort.radixSort(arr2);
         assertEquals(arr2.length, 5);
 
@@ -23,7 +23,7 @@ class RadixSortTest {
             assertTrue(arr2[i] <= arr2[i + 1]);
         }
 
-        int[] arr3 = new int[5];
+        Integer[] arr3 = new Integer[4];
 
         arr3[0] = 60;
         arr3[1] = 2;
