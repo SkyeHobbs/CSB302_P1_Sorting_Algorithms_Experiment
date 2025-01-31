@@ -58,8 +58,8 @@ public class RadixSort {
    * @param place  the current place to be sorted i.e. ones, tens, hundreds
    */
   private void countSort(Integer[] array, int length, int place) {
-    int[] count = new int[10]; // Count array to store the frequency of digits
-    int[] output = new int[length]; // Store sorted results
+    Integer[] count = new Integer[10]; // Count array to store the frequency of digits
+    Integer[] output = new Integer[length]; // Store sorted results
     Arrays.fill(count, 0); // Fill each space with a zeros to prevent errors
 
     // Store count of each number in its position in the count array
