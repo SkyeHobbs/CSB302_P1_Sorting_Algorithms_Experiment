@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * Class responsible for generating arrays of different types with various lengths.
  */
-public class GenerateAllArrays {
+public class GenerateAllArrays<T extends Number>  {
   private static final String[] arrayTypes = {
     "RandomOrderedArray",
     "OrderedArray",
@@ -22,16 +22,16 @@ public class GenerateAllArrays {
    *
    * @return List of ArrayInfo objects containing the generated arrays.
    */
-  public List<ArrayInfo> generateAllArrays() {
-    List<ArrayInfo> result = new ArrayList<>();
+  public List<ArrayInfo<T>> generateAllArrays() {
+    List<ArrayInfo<T>> result = new ArrayList<>();
 
     // Iterate through all array types
     for (String type : arrayTypes) {
       for (int length : arrayLengths) {
         // Generate array by type and length
-        int[] array = generateArrayByType(type, length);
+        T[] array = generateArrayByType(type, length);
         // Create ArrayInfo object and add to result list
-        result.add(new ArrayInfo(type, length, array));
+        result.add(new ArrayInfo<>(type, length, array));
       }
     }
     return result;
@@ -44,21 +44,34 @@ public class GenerateAllArrays {
    * @param length The length of the array.
    * @return The generated array.
    */
-  private int[] generateArrayByType(String type, int length) {
+  private T[] generateArrayByType(String type, int length) {
+    int[] intArray;
     switch (type) {
       case "RandomOrderedArray":
-        return new RandomOrderedArray().generateArray(length);
+        intArray = new RandomOrderedArray().generateArray(length);
+        break;
       case "OrderedArray":
-        return new OrderedArray().generateArray(length);
+        intArray = new OrderedArray().generateArray(length);
+        break;
       case "ReverseOrderedArray":
-        return new ReverseOrderedArray().generateArray(length);
+        intArray = new ReverseOrderedArray().generateArray(length);
+        break;
       case "FiftyPercentOrderedArray":
-        return new FiftyPercentOrderedArray().fiftyPercentOrderedArray(length);
+        intArray = new FiftyPercentOrderedArray().fiftyPercentOrderedArray(length);
+        break;
       case "SeventyFivePercentOrderedArray":
-        return new SeventyFivePercentOrderedArray().seventyFivePercentOrderedArray(length);
+        intArray = new SeventyFivePercentOrderedArray().seventyFivePercentOrderedArray(length);
+        break;
       default:
         throw new IllegalArgumentException("Unknown array type: " + type);
     }
+    // Convert int[] to T[]
+    T[] genericArray = (T[]) java.lang.reflect.Array.newInstance(Integer.class, intArray.length);
+    for (int i = 0; i < intArray.length; i++) {
+      genericArray[i] = (T) Integer.valueOf(intArray[i]); // Cast to T
+    }
+
+    return genericArray;
   }
 
   /**
@@ -76,10 +89,10 @@ public class GenerateAllArrays {
   /**
    * Inner class to hold the generated array info.
    */
-  public static class ArrayInfo {
+  public static class ArrayInfo<T extends Number> {
     private String arrayType;   // Array type (e.g., "RandomOrderedArray")
     private int arrayLength;    // Length of the array
-    private int[] array;        // The generated array
+    private T[] array;        // The generated array
 
     /**
      * Constructor to initialize an ArrayInfo object.
@@ -88,28 +101,24 @@ public class GenerateAllArrays {
      * @param arrayLength The length of the array.
      * @param array       The generated array.
      */
-    public ArrayInfo(String arrayType, int arrayLength, int[] array) {
+    public ArrayInfo(String arrayType, int arrayLength, T[] array) {
       this.arrayType = arrayType;
       this.arrayLength = arrayLength;
       this.array = array;
     }
 
-    // Getter for arrayType
     public String getArrayType() {
       return arrayType;
     }
 
-    // Getter for arrayLength
     public int getArrayLength() {
       return arrayLength;
     }
 
-    // Getter for array
-    public int[] getArray() {
+    public T[]  getArray() {
       return array;
     }
 
-    // Override toString method to provide a readable output
     @Override
     public String toString() {
       StringBuilder sb = new StringBuilder();

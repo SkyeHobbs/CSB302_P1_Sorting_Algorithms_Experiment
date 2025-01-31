@@ -8,17 +8,17 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 class GenerateAllArraysTest {
-  private GenerateAllArrays generator;
+  private GenerateAllArrays<Integer> generator;
 
   @BeforeEach
   void setUp() {
-    generator = new GenerateAllArrays();
+    generator = new GenerateAllArrays<>();
   }
 
   @Test
   public void testGenerateAllArrays_Size() {
     // Generate arrays and check if the size is as expected
-    List<GenerateAllArrays.ArrayInfo> arrays = generator.generateAllArrays();
+    List<GenerateAllArrays.ArrayInfo<Integer>> arrays = generator.generateAllArrays();
 
     // Check that the size matches the expected number of arrays (5 types * 14 lengths)
     assertEquals(5 * 14, arrays.size(), "The total number of generated arrays should be 70.");
@@ -27,7 +27,7 @@ class GenerateAllArraysTest {
   @Test
   public void testArrayInfo_Content() {
     // Test the content of an individual ArrayInfo object
-    List<GenerateAllArrays.ArrayInfo> arrays = generator.generateAllArrays();
+    List<GenerateAllArrays.ArrayInfo<Integer>> arrays = generator.generateAllArrays();
     GenerateAllArrays.ArrayInfo arrayInfo = arrays.get(0); // Get the first array
 
     // Check the array type is not null or empty
