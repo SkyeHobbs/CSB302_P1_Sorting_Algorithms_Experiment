@@ -13,7 +13,7 @@ public class RadixSort {
    * @param array the given array or integers
    * @return int[] the sorted integer array
    */
-  public int[] radixSort(int[] array) {
+  public Integer[] radixSort(Integer[] array) {
     // Check if the array is empty or null
     if (array == null || array.length == 0) {
       return array;
@@ -37,7 +37,7 @@ public class RadixSort {
    * @param length the length of the given array
    * @return the maximum value of the given array
    */
-  private int getMax(int[] array, int length) {
+  private int getMax(Integer[] array, int length) {
     int max = array[0]; // Set the largest value to the first element
 
     // Loop through the array and save the largest element
@@ -57,7 +57,7 @@ public class RadixSort {
    * @param length the length of the given array
    * @param place  the current place to be sorted i.e. ones, tens, hundreds
    */
-  private void countSort(int[] array, int length, int place) {
+  private void countSort(Integer[] array, int length, int place) {
     int[] count = new int[10]; // Count array to store the frequency of digits
     int[] output = new int[length]; // Store sorted results
     Arrays.fill(count, 0); // Fill each space with a zeros to prevent errors
