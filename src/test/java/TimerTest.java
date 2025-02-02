@@ -1,8 +1,7 @@
 import arraygeneration.GenerateAllArrays;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import sortingalgorithm.BubbleSort;
-import sortingalgorithm.BucketSort;
+import sortingalgorithm.*;
 
 import java.util.List;
 
@@ -44,6 +43,134 @@ class TimerTest {
       Timer.SortData sortData = timer.runtimeData.get(i);
 
       assertEquals(sortData.getAlgorithm(), "Bucket Sort");
+      assertEquals(sortData.getArrayType(), testArrays.get(i).getArrayType());
+      assertEquals(sortData.getArrayLength(), testArrays.get(i).getArrayLength());
+      assertTrue(sortData.runtime >= 0);
+    }
+    assertFalse(timer.getRuntimeData().isEmpty());
+  }
+
+  @Test
+  void testMeasureSortTime_CountingSort() {
+    CountingSort countingSort = new CountingSort();
+
+    for (int i = 0; i < testArrays.size(); i++) {
+      timer.measureSortTime(testArrays.get(i).getArray(), countingSort::countingSort, "Counting Sort", testArrays.get(i).getArrayType(),testArrays.get(i).getArrayLength());
+      Timer.SortData sortData = timer.runtimeData.get(i);
+
+      assertEquals(sortData.getAlgorithm(), "Counting Sort");
+      assertEquals(sortData.getArrayType(), testArrays.get(i).getArrayType());
+      assertEquals(sortData.getArrayLength(), testArrays.get(i).getArrayLength());
+      assertTrue(sortData.runtime >= 0);
+    }
+    assertFalse(timer.getRuntimeData().isEmpty());
+  }
+
+  @Test
+  void testMeasureSortTime_HeapSort() {
+    HeapSort<Integer> heapSort = new HeapSort<>();
+
+    for (int i = 0; i < testArrays.size(); i++) {
+      timer.measureSortTime(testArrays.get(i).getArray(), heapSort::heapSort, "Heap Sort", testArrays.get(i).getArrayType(),testArrays.get(i).getArrayLength());
+      Timer.SortData sortData = timer.runtimeData.get(i);
+
+      assertEquals(sortData.getAlgorithm(), "Heap Sort");
+      assertEquals(sortData.getArrayType(), testArrays.get(i).getArrayType());
+      assertEquals(sortData.getArrayLength(), testArrays.get(i).getArrayLength());
+      assertTrue(sortData.runtime >= 0);
+    }
+    assertFalse(timer.getRuntimeData().isEmpty());
+  }
+
+  @Test
+  void testMeasureSortTime_InsertionSort() {
+    InsertionSort<Integer> insertionSort = new InsertionSort<>();
+
+    for (int i = 0; i < testArrays.size(); i++) {
+      timer.measureSortTime(testArrays.get(i).getArray(), insertionSort::insertionSort, "Insertion Sort", testArrays.get(i).getArrayType(),testArrays.get(i).getArrayLength());
+      Timer.SortData sortData = timer.runtimeData.get(i);
+
+      assertEquals(sortData.getAlgorithm(), "Insertion Sort");
+      assertEquals(sortData.getArrayType(), testArrays.get(i).getArrayType());
+      assertEquals(sortData.getArrayLength(), testArrays.get(i).getArrayLength());
+      assertTrue(sortData.runtime >= 0);
+    }
+    assertFalse(timer.getRuntimeData().isEmpty());
+  }
+
+  @Test
+  void testMeasureSortTime_MergeSort() {
+    MergeSort<Integer> mergeSort = new MergeSort<>();
+
+    for (int i = 0; i < testArrays.size(); i++) {
+      timer.measureSortTime(testArrays.get(i).getArray(), mergeSort::mergeSort, "Merge Sort", testArrays.get(i).getArrayType(),testArrays.get(i).getArrayLength());
+      Timer.SortData sortData = timer.runtimeData.get(i);
+
+      assertEquals(sortData.getAlgorithm(), "Merge Sort");
+      assertEquals(sortData.getArrayType(), testArrays.get(i).getArrayType());
+      assertEquals(sortData.getArrayLength(), testArrays.get(i).getArrayLength());
+      assertTrue(sortData.runtime >= 0);
+    }
+    assertFalse(timer.getRuntimeData().isEmpty());
+  }
+
+  @Test
+  void testMeasureSortTime_QuickSort() {
+    QuickSort<Integer> quickSort = new QuickSort<>();
+
+    for (int i = 0; i < testArrays.size(); i++) {
+      timer.measureSortTime(testArrays.get(i).getArray(), quickSort::quickSortFirstPivot, "Quick Sort", testArrays.get(i).getArrayType(),testArrays.get(i).getArrayLength());
+      Timer.SortData sortData = timer.runtimeData.get(i);
+
+      assertEquals(sortData.getAlgorithm(), "Quick Sort");
+      assertEquals(sortData.getArrayType(), testArrays.get(i).getArrayType());
+      assertEquals(sortData.getArrayLength(), testArrays.get(i).getArrayLength());
+      assertTrue(sortData.runtime >= 0);
+    }
+    assertFalse(timer.getRuntimeData().isEmpty());
+  }
+
+  @Test
+  void testMeasureSortTime_RadixSort() {
+    RadixSort radixSort = new RadixSort();
+
+    for (int i = 0; i < testArrays.size(); i++) {
+      timer.measureSortTime(testArrays.get(i).getArray(), radixSort::radixSort, "Radix Sort", testArrays.get(i).getArrayType(),testArrays.get(i).getArrayLength());
+      Timer.SortData sortData = timer.runtimeData.get(i);
+
+      assertEquals(sortData.getAlgorithm(), "Radix Sort");
+      assertEquals(sortData.getArrayType(), testArrays.get(i).getArrayType());
+      assertEquals(sortData.getArrayLength(), testArrays.get(i).getArrayLength());
+      assertTrue(sortData.runtime >= 0);
+    }
+    assertFalse(timer.getRuntimeData().isEmpty());
+  }
+
+  @Test
+  void testMeasureSortTime_SelectionSort() {
+    SelectionSort<Integer> selectionSort = new SelectionSort<>();
+
+    for (int i = 0; i < testArrays.size(); i++) {
+      timer.measureSortTime(testArrays.get(i).getArray(), selectionSort::selectionSort, "Selection Sort", testArrays.get(i).getArrayType(),testArrays.get(i).getArrayLength());
+      Timer.SortData sortData = timer.runtimeData.get(i);
+
+      assertEquals(sortData.getAlgorithm(), "Selection Sort");
+      assertEquals(sortData.getArrayType(), testArrays.get(i).getArrayType());
+      assertEquals(sortData.getArrayLength(), testArrays.get(i).getArrayLength());
+      assertTrue(sortData.runtime >= 0);
+    }
+    assertFalse(timer.getRuntimeData().isEmpty());
+  }
+
+  @Test
+  void testMeasureSortTime_ShellSort() {
+    ShellSort<Integer> shellSort = new ShellSort<>();
+
+    for (int i = 0; i < testArrays.size(); i++) {
+      timer.measureSortTime(testArrays.get(i).getArray(), shellSort::shellSort, "Shell Sort", testArrays.get(i).getArrayType(),testArrays.get(i).getArrayLength());
+      Timer.SortData sortData = timer.runtimeData.get(i);
+
+      assertEquals(sortData.getAlgorithm(), "Shell Sort");
       assertEquals(sortData.getArrayType(), testArrays.get(i).getArrayType());
       assertEquals(sortData.getArrayLength(), testArrays.get(i).getArrayLength());
       assertTrue(sortData.runtime >= 0);
