@@ -1,7 +1,7 @@
 package sortingalgorithm;
 
 /**
- * A utility class that provides a generic method to perform selection sort on an array
+ * A utility class that provides a generic method to perform selection sort on an array.
  * Selection sort has a time complexity of O(n^2)
  */
 public class SelectionSort<T extends Comparable<T>> {

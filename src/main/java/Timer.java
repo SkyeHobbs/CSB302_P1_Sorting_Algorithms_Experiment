@@ -23,10 +23,13 @@ public class Timer {
    * @param sortFunctionName name of the given sort function.
    * @param arrayType        type of the given array.
    * @param arrayLength      length of the given array
-   * @return long the time it takes for the array to be sorted by the given sort function in milliseconds.
+   * @return long the time it takes for the array to be sorted
+   *     by the given sort function in milliseconds.
    */
-  public long measureSortTime(Integer[] array, Consumer<Integer[]> sortFunction, String sortFunctionName, String arrayType, int arrayLength) {
-    Integer[] arrCopy = Arrays.copyOf(array, array.length); // Copy the array to avoid editing the given array
+  public long measureSortTime(Integer[] array, Consumer<Integer[]> sortFunction,
+                              String sortFunctionName, String arrayType, int arrayLength) {
+    // Copy the array to avoid editing the given array
+    Integer[] arrCopy = Arrays.copyOf(array, array.length);
 
     // Measure the runtime of the given method in nanoseconds
     long startTime = System.nanoTime();
@@ -90,10 +93,16 @@ public class Timer {
 
     @Override
     public String toString() {
-      return "SortData{" + "algorithm='" + algorithm + '\'' + ", arrayType='" + arrayType + '\'' + ", arrayLength=" + arrayLength + ", runtime=" + runtime + '}';
+      return "SortData{" + "algorithm='" + algorithm + '\'' + ", arrayType='"
+              + arrayType + '\'' + ", arrayLength=" + arrayLength + ", runtime=" + runtime + '}';
     }
 
-    public String toCSV() {
+    /**
+     * Returns the data as a CSV formatted string.
+     *
+     * @return the array info in CSV format.
+     */
+    public String toCsv() {
       return algorithm + "," + arrayType + "," + arrayLength + "," + runtime;
     }
   }

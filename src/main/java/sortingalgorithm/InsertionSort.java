@@ -2,7 +2,7 @@ package sortingalgorithm;
 
 
 /**
- * Insertion sort class
+ * Insertion sort class.
  *
  * @param <T> Sorts an array of generic type.
  */

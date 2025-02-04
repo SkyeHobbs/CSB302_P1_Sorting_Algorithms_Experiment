@@ -31,7 +31,7 @@ public class RadixSort {
   }
 
   /**
-   * Helper function to get the maximum value from the given array
+   * Helper function to get the maximum value from the given array.
    *
    * @param array  the given array or integers
    * @param length the length of the given array
@@ -51,12 +51,13 @@ public class RadixSort {
   }
 
   /**
-   * A private method that sorts the given array by the digit in the given place
+   * A private method that sorts the given array by the digit in the given place.
    *
    * @param array  the given array to be sorted
    * @param length the length of the given array
    * @param place  the current place to be sorted i.e. ones, tens, hundreds
    */
+  @SuppressWarnings("checkstyle:VariableDeclarationUsageDistance")
   private void countSort(Integer[] array, int length, int place) {
     Integer[] count = new Integer[10]; // Count array to store the frequency of digits
     Integer[] output = new Integer[length]; // Store sorted results
