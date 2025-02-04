@@ -44,7 +44,8 @@ public class BucketSort<T extends Comparable<T>> {
 
     // Distribute the elements into the buckets
     for (T value : array) {
-      int bucketIndex = (value.compareTo(minValue)) * (numberOfBuckets - 1) / (maxValue.compareTo(minValue));
+      int bucketIndex =
+              (value.compareTo(minValue)) * (numberOfBuckets - 1) / (maxValue.compareTo(minValue));
       buckets.get(bucketIndex).add(value);
     }
 

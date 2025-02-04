@@ -9,8 +9,14 @@ import java.util.Stack;
  * @param <T> The type of elements to be sorted, extending Comparable.
  */
 public class QuickSort<T extends Comparable<T>> {
+  /**
+   * Sorts the array using QuickSort with the first element as the pivot.
+   *
+   * @param array The array to be sorted.
+   * @return The sorted array.
+   */
   public T[] quickSortFirstPivot(T[] array) {
-    quickSort(array, 0, array.length - 1, PivotType.FIRST);
+    quickSort(array, array.length - 1, PivotType.FIRST);
     return array;
   }
 
@@ -21,7 +27,7 @@ public class QuickSort<T extends Comparable<T>> {
    * @return The sorted array.
    */
   public T[] quickSortRandomPivot(T[] array) {
-    quickSort(array, 0, array.length - 1, PivotType.RANDOM);
+    quickSort(array, array.length - 1, PivotType.RANDOM);
     return array;
   }
 
@@ -32,25 +38,26 @@ public class QuickSort<T extends Comparable<T>> {
    * @return The sorted array.
    */
   public T[] quickSortMedianOfThree(T[] array) {
-    quickSort(array, 0, array.length - 1, PivotType.MEDIAN_OF_THREE);
+    quickSort(array, array.length - 1, PivotType.MEDIAN_OF_THREE);
     return array;
   }
 
   /**
    * The main QuickSort logic that works with the specified pivot type.
    */
-  private void quickSort(T[] array, int low, int high, PivotType pivotType) {
+  private void quickSort(T[] array, int high, PivotType pivotType) {
     Stack<int[]> stack = new Stack<>();
-    stack.push(new int[]{low, high}); // Push the initial range
+    stack.push(new int[]{0, high}); // Push the initial range
 
     while (!stack.isEmpty()) {
       int[] range = stack.pop();
-      int start = range[0], end = range[1];
+      int start = range[0];
+      int end = range[1];
 
       if (start < end) {
         int pivotIndex = partition(array, start, end, pivotType);
 
-        // Push right subarray first so that left subarray is processed first
+        // Push right sub array first so that left sub array is processed first
         if (pivotIndex + 1 < end) {
           stack.push(new int[]{pivotIndex + 1, end});
         }
@@ -84,18 +91,17 @@ public class QuickSort<T extends Comparable<T>> {
    * Selects the pivot index based on the strategy.
    */
   private int selectPivot(T[] array, int low, int high, PivotType pivotType) {
-    switch (pivotType) {
-      case FIRST:
-        return low;
-      case RANDOM:
+    return switch (pivotType) {
+      case FIRST -> low;
+      case RANDOM -> {
         Random random = new Random();
-        return random.nextInt(high - low + 1) + low;
-      case MEDIAN_OF_THREE:
+        yield random.nextInt(high - low + 1) + low;
+      }
+      case MEDIAN_OF_THREE -> {
         int mid = low + (high - low) / 2;
-        return medianOfThree(array, low, mid, high);
-      default:
-        throw new IllegalArgumentException("Invalid Pivot Type");
-    }
+        yield medianOfThree(array, low, mid, high);
+      }
+    };
   }
 
   /**
@@ -106,9 +112,11 @@ public class QuickSort<T extends Comparable<T>> {
     T b = array[mid];
     T c = array[high];
 
-    if ((a.compareTo(b) <= 0 && b.compareTo(c) <= 0) || (c.compareTo(b) <= 0 && b.compareTo(a) <= 0)) {
+    if ((a.compareTo(b) <= 0 && b.compareTo(c) <= 0)
+            || (c.compareTo(b) <= 0 && b.compareTo(a) <= 0)) {
       return mid;
-    } else if ((b.compareTo(a) <= 0 && a.compareTo(c) <= 0) || (c.compareTo(a) <= 0 && a.compareTo(b) <= 0)) {
+    } else if ((b.compareTo(a) <= 0 && a.compareTo(c) <= 0)
+            || (c.compareTo(a) <= 0 && a.compareTo(b) <= 0)) {
       return low;
     } else {
       return high;

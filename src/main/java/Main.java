@@ -6,7 +6,16 @@ import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartUtilities;
 import org.jfree.chart.JFreeChart;
 import org.jfree.data.category.DefaultCategoryDataset;
-import sortingalgorithm.*;
+import sortingalgorithm.BubbleSort;
+import sortingalgorithm.BucketSort;
+import sortingalgorithm.CountingSort;
+import sortingalgorithm.HeapSort;
+import sortingalgorithm.InsertionSort;
+import sortingalgorithm.MergeSort;
+import sortingalgorithm.QuickSort;
+import sortingalgorithm.RadixSort;
+import sortingalgorithm.SelectionSort;
+import sortingalgorithm.ShellSort;
 
 /**
  * Main class. Runs all sorting algorithms on test arrays

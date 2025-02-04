@@ -1,6 +1,5 @@
 package sortingalgorithm;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -16,7 +15,7 @@ class RadixSortTest {
         assertEquals(arr1.length, 0);
 
         Integer[] arr2 = new Integer[]{150, 40, 5, 106, 89};
-        radixSort.radixSort(arr2);
+        arr2 = radixSort.radixSort(arr2);
         assertEquals(arr2.length, 5);
 
         for (int i = 0; i < arr2.length - 1; i++) {

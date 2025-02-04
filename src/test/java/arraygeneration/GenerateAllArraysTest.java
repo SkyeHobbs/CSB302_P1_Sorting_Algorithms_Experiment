@@ -28,7 +28,7 @@ class GenerateAllArraysTest {
   public void testArrayInfo_Content() {
     // Test the content of an individual ArrayInfo object
     List<GenerateAllArrays.ArrayInfo<Integer>> arrays = generator.generateAllArrays();
-    GenerateAllArrays.ArrayInfo arrayInfo = arrays.get(0); // Get the first array
+    GenerateAllArrays.ArrayInfo<Integer> arrayInfo = arrays.getFirst(); // Get the first array
 
     // Check the array type is not null or empty
     assertNotNull(arrayInfo.getArrayType(), "Array type should not be null.");
