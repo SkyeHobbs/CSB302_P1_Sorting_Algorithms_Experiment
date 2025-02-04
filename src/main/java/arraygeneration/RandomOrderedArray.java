@@ -10,11 +10,6 @@ import java.util.Random;
 public class RandomOrderedArray {
 
   /**
-   * An array of integers that will store the randomly generated values.
-   */
-  private int[] array;
-
-  /**
    * Generates an array of random integers of the specified length.
    *
    * <p>The array is filled with integers between 0 (inclusive) and 100 (exclusive).
@@ -23,7 +18,8 @@ public class RandomOrderedArray {
    * @return A new array filled with random integers.
    */
   public int[] generateArray(int length) {
-    array = new int[length];
+
+    int[] array = new int[length];
 
     Random random = new Random();
 

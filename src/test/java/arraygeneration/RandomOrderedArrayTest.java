@@ -53,8 +53,7 @@ public class RandomOrderedArrayTest {
     RandomOrderedArray randomOrderedArray = new RandomOrderedArray();
 
     // Check for an exception when a negative length is passed
-    assertThrows(NegativeArraySizeException.class, () -> {
-      randomOrderedArray.generateArray(-5);
-    }, "Negative array lengths should throw NegativeArraySizeException.");
+    assertThrows(NegativeArraySizeException.class, () -> randomOrderedArray.generateArray(-5),
+            "Negative array lengths should throw NegativeArraySizeException.");
   }
 }

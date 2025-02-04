@@ -45,26 +45,16 @@ public class GenerateAllArrays<T extends Number>  {
    * @return The generated array.
    */
   private T[] generateArrayByType(String type, int length) {
-    int[] intArray;
-    switch (type) {
-      case "RandomOrderedArray":
-        intArray = new RandomOrderedArray().generateArray(length);
-        break;
-      case "OrderedArray":
-        intArray = new OrderedArray().generateArray(length);
-        break;
-      case "ReverseOrderedArray":
-        intArray = new ReverseOrderedArray().generateArray(length);
-        break;
-      case "FiftyPercentOrderedArray":
-        intArray = new FiftyPercentOrderedArray().fiftyPercentOrderedArray(length);
-        break;
-      case "SeventyFivePercentOrderedArray":
-        intArray = new SeventyFivePercentOrderedArray().seventyFivePercentOrderedArray(length);
-        break;
-      default:
-        throw new IllegalArgumentException("Unknown array type: " + type);
-    }
+    int[] intArray = switch (type) {
+      case "RandomOrderedArray" -> new RandomOrderedArray().generateArray(length);
+      case "OrderedArray" -> new OrderedArray().generateArray(length);
+      case "ReverseOrderedArray" -> new ReverseOrderedArray().generateArray(length);
+      case "FiftyPercentOrderedArray" ->
+              new FiftyPercentOrderedArray().fiftyPercentOrderedArray(length);
+      case "SeventyFivePercentOrderedArray" ->
+              new SeventyFivePercentOrderedArray().seventyFivePercentOrderedArray(length);
+      default -> throw new IllegalArgumentException("Unknown array type: " + type);
+    };
     // Convert int[] to T[]
     T[] genericArray = (T[]) java.lang.reflect.Array.newInstance(Integer.class, intArray.length);
     for (int i = 0; i < intArray.length; i++) {
@@ -86,9 +76,11 @@ public class GenerateAllArrays<T extends Number>  {
     }
     return lengths;
   }
+
   /**
    * Inner class to hold the generated array info.
    */
+
   public static class ArrayInfo<T extends Number> {
     private String arrayType;   // Array type (e.g., "RandomOrderedArray")
     private int arrayLength;    // Length of the array
@@ -129,7 +121,9 @@ public class GenerateAllArrays<T extends Number>  {
       int limit = Math.min(array.length, 50); // Limit to first 50 elements
       for (int i = 0; i < limit; i++) {
         sb.append(array[i]);
-        if (i < limit - 1) sb.append(", ");
+        if (i < limit - 1) {
+          sb.append(", ");
+        }
       }
 
       if (array.length > 50) {
