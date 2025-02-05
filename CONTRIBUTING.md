@@ -18,7 +18,7 @@
     - HeapSort.java
     - RandomOrderedArray.java
     - GenerateAllArrays.java
-    - ArrayInfo.java
+
 
 - **Henry Staiff**
     - Development Manager
@@ -34,7 +34,9 @@
     - InsertionSort.java
     - RadixSort.java
     - FiftyPercentOrderedArray.java
-    - MeasureSortTime.java
+    - SeventyFivePercentOrderedArray.java
+    - Timer.java
+     
 
 - **Tinisha Davis**
     - Project Manager
@@ -42,7 +44,6 @@
     - SelectionSort.java
     - BucketSort.java
     - BubbleSort.java
-    - SeventyFivePercentOrderedArray.java
   
 
 Thank you for contributing! 
