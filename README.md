@@ -30,7 +30,7 @@ Sort, Selection Sort, Bubble Sort, Shell Sort, Merge Sort, Quick Sort (First Piv
 
 1. Download the Required JAR Files 
 * Obtain the necessary JAR files from the official website or a trusted source.
-* Example: Download JFreeChart from JFreeChart’s website.
+* Example: Download jfreechart-1.0.19.jar and jcommon-1.0.23.jar from JFreeChart’s website. 
 * Extract the files if they are in a compressed format (e.g., .zip).
 
 2. Add JAR Files to Your Project
